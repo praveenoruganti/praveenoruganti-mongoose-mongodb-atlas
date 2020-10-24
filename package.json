@@ -1,0 +1,27 @@
+{
+  "homepage": "https://github.com/praveenoruganti/praveenoruganti-mongoose-mongodb-atlas",
+  "name": "praveenoruganti-mongoose-mongodb-atlas",
+  "author": "Praveen Oruganti",
+  "description": "praveenoruganti-mongoose-mongodb-atlas",
+  "license": "MIT",
+  "version": "1.0.0",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.10.10"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "engines": {
+    "node": "4.7.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/praveenoruganti/praveenoruganti-mongoose-mongodb-atlas.git"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.5"
+  }
+}
