@@ -20,6 +20,8 @@ We’ll need to get setup with MongoDB Atlas. Here’s a summary of the steps to get
 
 ## Coding
 
+### index.js
+
 ```JS
 const express = require('express');
 const mongoose = require('mongoose');
