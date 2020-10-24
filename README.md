@@ -42,6 +42,20 @@ app.listen(PORT, () => console.log(`Server is running on ${PORT}`));
 
 ```
 
+## Schemas
+First we need to have a pattern to structure our data onto, and these patterns are referred to as schemas. Schemas allow us to decide exactly what data we want, and what options we want the data to have as an object.
+
+With that basic pattern in place we’ll use the mongoose.model method to make it usable with actual data and export it as a variable we can use in foodRoutes.js.
+
+### Options
+- type Sets whether it is a String, Number, Date, Boolean, Array, or a Map (an object).
+- required (Boolean) Return an error if not provided.
+- trim (Boolean) Removes any extra whitespace.
+- uppercase (Boolean) Converts to uppercase.
+- lowercase (Boolean) Converts to lowercase.
+- validate Sets a function to determine if the result is acceptable.
+- default Sets the default if no data is given.
+
 ### food.js
 
 ```JS
