@@ -5,7 +5,7 @@ const foodRouter = require('./routes/foodRoutes.js');
 const app = express();
 app.use(express.json());
 
-mongoose.connect('mongodb+srv://praveenorugantitech:praveenorugantitech@praveenorugantitech.pbbsv.mongodb.net/foods?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://praveenorugantitech:praveenorugantitech@praveenorugantitech.pbbsv.mongodb.net/food?retryWrites=true&w=majority', {
   useNewUrlParser: true
 });
 
