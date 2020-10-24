@@ -11,10 +11,10 @@ but the routing will be asynchronous and we値l be using async/await functions, w
 
 We値l need to get setup with MongoDB Atlas. Here痴 a summary of the steps to get started:
 
-Setup an account
-Hit Build a Cluster
-Go to Database Access and hit Add New User. Add a username and password, if you autogenerate a password make sure you copy it, we値l need it later.
-Go to Network Access, hit Add IP Address, and hit Add Current IP Address, then confirm.
-Go to Clusters, if your cluster build is done then hit Connect, Connect Your Application, and copy the line of code it gives you
-Everything else with MongoDB Atlas will be handled on our end with in Node.js.
+# Setup an account
+# Hit Build a Cluster
+# Go to Database Access and hit Add New User. Add a username and password, if you autogenerate a password make sure you copy it, we値l need it later.
+# Go to Network Access, hit Add IP Address, and hit Add Current IP Address, then confirm.
+# Go to Clusters, if your cluster build is done then hit Connect, Connect Your Application, and copy the line of code it gives you
+# Everything else with MongoDB Atlas will be handled on our end with in Node.js.
 
