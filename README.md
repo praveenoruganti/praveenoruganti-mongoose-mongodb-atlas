@@ -80,3 +80,74 @@ const FoodSchema = new mongoose.Schema({
 const Food = mongoose.model("Food", FoodSchema);
 module.exports = Food;
 ```
+
+## Query Functions
+While there are many querying functions available, which you can find here, here are the ones we値l be using in this instance:
+
+= find() Returns all objects with matching parameters so .find({ name: fish }) would return every object named fish and an empty object will return everything.
+- save() Save it to our Atlas database.
+- findByIdAndDelete() Takes the objects id and removes from the database.
+- findByIdAndUpdate Takes the objects id and an object to replace it with.
+- deleteOne() and deleteMany() Removes the first or all items from the database.
+
+## Read All
+Once we have our data model set up we can start setting up basic routes to use it.
+
+We値l start by getting all foods in the database, which should just be an empty array right now. Since Mongoose functions are asynchronous, we値l be using async/await.
+
+Once we have the data we値l use a try/catch block to send it back to and so that we can see that things are working using Postman.
+
+### foodRoutes.js
+
+```JS
+const express = require('express');
+const foodModel = require('../models/food');
+const app = express();
+
+app.get('/foods', async (req, res) => {
+  const foods = await foodModel.find({});
+
+  try {
+    res.send(foods);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
+app.post('/food', async (req, res) => {
+  const food = new foodModel(req.body);
+
+  try {
+    await food.save();
+    res.send(food);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
+app.delete('/food/:id', async (req, res) => {
+  try {
+    const food = await foodModel.findByIdAndDelete(req.params.id)
+
+    if (!food) res.status(404).send("No item found")
+    res.status(200).send()
+  } catch (err) {
+    res.status(500).send(err)
+  }
+});
+
+app.patch('/food/:id', async (req, res) => {
+  try {
+    await foodModel.findByIdAndUpdate(req.params.id, req.body)
+    await foodModel.save()
+    res.send(food)
+  } catch (err) {
+    res.status(500).send(err)
+  }
+});
+
+
+module.exports = app
+
+```
+
