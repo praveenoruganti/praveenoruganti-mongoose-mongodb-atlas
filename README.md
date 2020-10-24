@@ -151,7 +151,7 @@ module.exports = app
 
 ``` JSON
 {
-  "name": "Idly",
-  "calories": "100"
+  "name": "Praveen Oruganti",
+  "age": 35
 }
 ``` 
