@@ -1,5 +1,4 @@
-### praveenoruganti-mongoose-mongodb-atlas
-Praveen Oruganti Mongoose Mongodb Atlas
+## Praveen Oruganti Mongoose Mongodb Atlas
 
 Mongoose is one of the fundamental tools for manipulating data for a Node.js/MongoDB backend. 
 Let see the basic ways of using Mongoose and even using it with the MongoDB Atlas remote database.
