@@ -18,3 +18,24 @@ We’ll need to get setup with MongoDB Atlas. Here’s a summary of the steps to get
 - Go to Clusters, if your cluster build is done then hit Connect, Connect Your Application, and copy the line of code it gives you
 - Everything else with MongoDB Atlas will be handled on our end with in Node.js.
 
+## Coding
+
+```JS
+const express = require('express');
+const mongoose = require('mongoose');
+const foodRouter = require('./routes/foodRoutes.js');
+
+const app = express();
+app.use(express.json());
+
+mongoose.connect('mongodb+srv://praveenorugantitech:praveenorugantitech@praveenorugantitech.pbbsv.mongodb.net/food?retryWrites=true&w=majority', {
+  useNewUrlParser: true
+});
+
+app.use(foodRouter);
+
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => console.log(`Server is running on ${PORT}`));
+
+```
