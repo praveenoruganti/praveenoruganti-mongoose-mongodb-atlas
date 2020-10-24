@@ -25,16 +25,16 @@ We値l need to get setup with MongoDB Atlas. Here痴 a summary of the steps to get
 ```JS
 const express = require('express');
 const mongoose = require('mongoose');
-const foodRouter = require('./routes/foodRoutes.js');
+const userRouter = require('./routes/userRoutes.js');
 
 const app = express();
 app.use(express.json());
 
-mongoose.connect('mongodb+srv://praveenorugantitech:praveenorugantitech@praveenorugantitech.pbbsv.mongodb.net/food?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://praveenorugantitech:praveenorugantitech@praveenorugantitech.pbbsv.mongodb.net/user?retryWrites=true&w=majority', {
   useNewUrlParser: true
 });
 
-app.use(foodRouter);
+app.use(userRouter);
 
 const PORT = process.env.PORT || 3000;
 
@@ -45,7 +45,7 @@ app.listen(PORT, () => console.log(`Server is running on ${PORT}`));
 ## Schemas
 First we need to have a pattern to structure our data onto, and these patterns are referred to as schemas. Schemas allow us to decide exactly what data we want, and what options we want the data to have as an object.
 
-With that basic pattern in place we値l use the mongoose.model method to make it usable with actual data and export it as a variable we can use in foodRoutes.js.
+With that basic pattern in place we値l use the mongoose.model method to make it usable with actual data and export it as a variable we can use in userRoutes.js.
 
 ### Options
 - type Sets whether it is a String, Number, Date, Boolean, Array, or a Map (an object).
@@ -56,29 +56,26 @@ With that basic pattern in place we値l use the mongoose.model method to make it 
 - validate Sets a function to determine if the result is acceptable.
 - default Sets the default if no data is given.
 
-### food.js
+### user.js
 
 ```JS
 const mongoose = require('mongoose');
 
-const FoodSchema = new mongoose.Schema({
+const UserSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
     trim: true,
     lowercase: true
   },
-  calories: {
+  age: {
     type: Number,
-    default: 0,
-    validate(value) {
-      if (value < 0) throw new Error("Negative calories aren't real.");
-    }
+    default: 0
   },
 });
 
-const Food = mongoose.model("Food", FoodSchema);
-module.exports = Food;
+const User = mongoose.model("User", UserSchema);
+module.exports = User;
 ```
 
 ## Query Functions
@@ -93,54 +90,54 @@ While there are many querying functions available, which you can find here, here
 ## Read All
 Once we have our data model set up we can start setting up basic routes to use it.
 
-We値l start by getting all foods in the database, which should just be an empty array right now. Since Mongoose functions are asynchronous, we値l be using async/await.
+We値l start by getting all users in the database, which should just be an empty array right now. Since Mongoose functions are asynchronous, we値l be using async/await.
 
 Once we have the data we値l use a try/catch block to send it back to and so that we can see that things are working using Postman.
 
-### foodRoutes.js
+### userRoutes.js
 
 ```JS
 const express = require('express');
-const foodModel = require('../models/food');
+const userModel = require('../models/user');
 const app = express();
 
-app.get('/foods', async (req, res) => {
-  const foods = await foodModel.find({});
+app.get('/users', async (req, res) => {
+  const users = await userModel.find({});
 
   try {
-    res.send(foods);
+    res.send(users);
   } catch (err) {
     res.status(500).send(err);
   }
 });
 
-app.post('/food', async (req, res) => {
-  const food = new foodModel(req.body);
+app.post('/user', async (req, res) => {
+  const user = new userModel(req.body);
 
   try {
-    await food.save();
-    res.send(food);
+    await user.save();
+    res.send(user);
   } catch (err) {
     res.status(500).send(err);
   }
 });
 
-app.delete('/food/:id', async (req, res) => {
+app.delete('/user/:id', async (req, res) => {
   try {
-    const food = await foodModel.findByIdAndDelete(req.params.id)
+    const user = await userModel.findByIdAndDelete(req.params.id)
 
-    if (!food) res.status(404).send("No item found")
+    if (!user) res.status(404).send("No item found")
     res.status(200).send()
   } catch (err) {
     res.status(500).send(err)
   }
 });
 
-app.patch('/food/:id', async (req, res) => {
+app.patch('/user/:id', async (req, res) => {
   try {
-    await foodModel.findByIdAndUpdate(req.params.id, req.body)
-    await foodModel.save()
-    res.send(food)
+    await userModel.findByIdAndUpdate(req.params.id, req.body)
+    await userModel.save()
+    res.send(user)
   } catch (err) {
     res.status(500).send(err)
   }
@@ -150,7 +147,7 @@ app.patch('/food/:id', async (req, res) => {
 module.exports = app
 
 ```
-## Now open postman and hit POST http://localhost:3000/food with below Json
+## Now open postman and hit POST http://localhost:3000/user with below Json
 
 ``` JSON
 {
