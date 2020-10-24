@@ -3,7 +3,7 @@ const foodModel = require('../models/food');
 const app = express();
 
 app.get('/foods', (req, res) => {
-  const foods = await foodModel.find({});
+  const foods = foodModel.find({});
 
   try {
     res.send(foods);
