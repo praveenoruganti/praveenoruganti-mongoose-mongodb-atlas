@@ -16,7 +16,7 @@ app.post('/food', (req, res) => {
   const food = new foodModel(req.body);
 
   try {
-    await food.save();
+    food.save();
     res.send(food);
   } catch (err) {
     res.status(500).send(err);
@@ -25,7 +25,7 @@ app.post('/food', (req, res) => {
 
 app.delete('/food/:id', (req, res) => {
   try {
-    const food = await foodModel.findByIdAndDelete(req.params.id)
+    const food = foodModel.findByIdAndDelete(req.params.id)
 
     if (!food) res.status(404).send("No item found")
     res.status(200).send()
@@ -36,8 +36,8 @@ app.delete('/food/:id', (req, res) => {
 
 app.patch('/food/:id', (req, res) => {
   try {
-    await foodModel.findByIdAndUpdate(req.params.id, req.body)
-    await foodModel.save()
+    foodModel.findByIdAndUpdate(req.params.id, req.body)
+    foodModel.save()
     res.send(food)
   } catch (err) {
     res.status(500).send(err)
