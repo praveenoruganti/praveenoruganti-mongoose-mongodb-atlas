@@ -10,7 +10,7 @@ app.get('/foods', async (req, res) => {
   } catch (err) {
     res.status(500).send(err);
   }
-});
+})
 
 app.post('/food', async (req, res) => {
   const food = new foodModel(req.body);
@@ -21,7 +21,7 @@ app.post('/food', async (req, res) => {
   } catch (err) {
     res.status(500).send(err);
   }
-});
+})
 
 app.delete('/food/:id', async (req, res) => {
   try {
@@ -32,7 +32,7 @@ app.delete('/food/:id', async (req, res) => {
   } catch (err) {
     res.status(500).send(err)
   }
-});
+})
 
 app.patch('/food/:id', async (req, res) => {
   try {
@@ -42,6 +42,6 @@ app.patch('/food/:id', async (req, res) => {
   } catch (err) {
     res.status(500).send(err)
   }
-});
+})
 
 module.exports = app
