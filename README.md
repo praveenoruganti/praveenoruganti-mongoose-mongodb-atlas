@@ -84,7 +84,7 @@ module.exports = Food;
 ## Query Functions
 While there are many querying functions available, which you can find here, here are the ones we’ll be using in this instance:
 
-= find() Returns all objects with matching parameters so .find({ name: fish }) would return every object named fish and an empty object will return everything.
+- find() Returns all objects with matching parameters so .find({ name: fish }) would return every object named fish and an empty object will return everything.
 - save() Save it to our Atlas database.
 - findByIdAndDelete() Takes the objects id and removes from the database.
 - findByIdAndUpdate Takes the objects id and an object to replace it with.
@@ -150,4 +150,11 @@ app.patch('/food/:id', async (req, res) => {
 module.exports = app
 
 ```
+## Now open postman and hit POST http://localhost:3000/food with below Json
 
+``` JSON
+{
+  "name": "Idly",
+  "calories": "100"
+}
+``` 
