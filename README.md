@@ -4,16 +4,16 @@ Mongoose is one of the fundamental tools for manipulating data for a Node.js/Mon
 Let see the basic ways of using Mongoose and even using it with the MongoDB Atlas remote database.
 
 ## Prerequisites
-Since we’ll be using Express to set up a basic server and be setting up a very basic REST Api without any authentication, 
-but the routing will be asynchronous and we’ll be using async/await functions, which you can freshen up on here.
+Since weâ€™ll be using Express to set up a basic server and be setting up a very basic REST Api without any authentication, 
+but the routing will be asynchronous and weâ€™ll be using async/await functions, which you can freshen up on here.
 
 ## MongoDB Atlas Setup
 
-We’ll need to get setup with MongoDB Atlas. Here’s a summary of the steps to get started:
+Weâ€™ll need to get setup with MongoDB Atlas. Hereâ€™s a summary of the steps to get started:
 
 - Setup an account
 - Hit Build a Cluster
-- Go to Database Access and hit Add New User. Add a username and password, if you autogenerate a password make sure you copy it, we’ll need it later.
+- Go to Database Access and hit Add New User. Add a username and password, if you autogenerate a password make sure you copy it, weâ€™ll need it later.
 - Go to Network Access, hit Add IP Address, and hit Add Current IP Address, then confirm.
 - Go to Clusters, if your cluster build is done then hit Connect, Connect Your Application, and copy the line of code it gives you
 - Everything else with MongoDB Atlas will be handled on our end with in Node.js.
@@ -45,7 +45,7 @@ app.listen(PORT, () => console.log(`Server is running on ${PORT}`));
 ## Schemas
 First we need to have a pattern to structure our data onto, and these patterns are referred to as schemas. Schemas allow us to decide exactly what data we want, and what options we want the data to have as an object.
 
-With that basic pattern in place we’ll use the mongoose.model method to make it usable with actual data and export it as a variable we can use in userRoutes.js.
+With that basic pattern in place weâ€™ll use the mongoose.model method to make it usable with actual data and export it as a variable we can use in userRoutes.js.
 
 ### Options
 - type Sets whether it is a String, Number, Date, Boolean, Array, or a Map (an object).
@@ -79,7 +79,7 @@ module.exports = User;
 ```
 
 ## Query Functions
-While there are many querying functions available, which you can find here, here are the ones we’ll be using in this instance:
+While there are many querying functions available, which you can find here, here are the ones weâ€™ll be using in this instance:
 
 - find() Returns all objects with matching parameters so .find({ name: fish }) would return every object named fish and an empty object will return everything.
 - save() Save it to our Atlas database.
@@ -90,9 +90,9 @@ While there are many querying functions available, which you can find here, here
 ## Read All
 Once we have our data model set up we can start setting up basic routes to use it.
 
-We’ll start by getting all users in the database, which should just be an empty array right now. Since Mongoose functions are asynchronous, we’ll be using async/await.
+Weâ€™ll start by getting all users in the database, which should just be an empty array right now. Since Mongoose functions are asynchronous, weâ€™ll be using async/await.
 
-Once we have the data we’ll use a try/catch block to send it back to and so that we can see that things are working using Postman.
+Once we have the data weâ€™ll use a try/catch block to send it back to and so that we can see that things are working using Postman.
 
 ### userRoutes.js
 
@@ -155,3 +155,4 @@ module.exports = app
   "age": 35
 }
 ``` 
+### [Buy me a Coffeee](http://bit.ly/2WryDT8)
