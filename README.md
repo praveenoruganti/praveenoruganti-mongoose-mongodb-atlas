@@ -1,4 +1,4 @@
-## Praveen Oruganti Tech Mongoose Course
+## Mongoose Mongodb Atlas Course
 
 Mongoose is one of the fundamental tools for manipulating data for a Node.js/MongoDB backend. 
 Let see the basic ways of using Mongoose and even using it with the MongoDB Atlas remote database.
